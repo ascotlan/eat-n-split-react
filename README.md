@@ -10,12 +10,8 @@ This simple application allows friends to record amounts owing to each other aft
 ## Starting the app
 First fork, then in the cloned project directory, you can run:
 
-### `npm install`
-Installs all dependencies
+1. `npm install` : Installs all dependencies
 
-### `npm start`
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
+2. `npm start`: Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes.\
 You may also see any lint errors in the console.
