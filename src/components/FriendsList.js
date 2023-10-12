@@ -1,10 +1,9 @@
 import FriendsListItem from "./FriendsListItem";
 import AddFriend from "./AddFriend";
 import Button from "./Button";
-import { useState } from "react";
 
-export default function FriendList({ friends, onSelect, selectFriend }) {
-  const [isAddFriend, setIsAddFriend] = useState(false);
+export default function FriendList({ friends, onSelect, selectFriend, handleUpdateFriends, isAddFriend, setIsAddFriend }) {
+ 
   
   const renderedFriends = friends.map((friend, index) => {
     const isOpen = index === selectFriend.isOpenIndex;
@@ -25,8 +24,8 @@ export default function FriendList({ friends, onSelect, selectFriend }) {
   return (
     <article className="sidebar">
       <ul>{renderedFriends}</ul>
-      {isAddFriend && <AddFriend />}
-      <Button onSelect={() => setIsAddFriend(curr => !curr)}>Add Friend</Button>
+      {isAddFriend && <AddFriend onAddFriend={handleUpdateFriends} />}
+      <Button onSelect={() => setIsAddFriend(curr => !curr)}>{isAddFriend ? "Close":"Add Friend"}</Button>
     </article>
   );
 }

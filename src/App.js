@@ -26,6 +26,7 @@ const initialFriends = [
 function App() {
   const [select, setSelect] = useState({ id: null, name: "", isOpenIndex: -1 });
   const [friends, setFriends] = useState(initialFriends);
+  const [isAddFriend, setIsAddFriend] = useState(false);
 
   const handleSelect = (id, name, nextIndex) => {
     setSelect((currentIndex) => {
@@ -37,6 +38,8 @@ function App() {
         isOpenIndex: isOpen ? -1 : nextIndex,
       };
     });
+
+    return setIsAddFriend(false);
   };
 
   const handleBalanceUpdate = (id, myExpense, friendExpense, whoPays, bill) => {
@@ -45,7 +48,7 @@ function App() {
         ? parseInt(bill) - parseInt(myExpense)
         : parseInt(friendExpense) - parseInt(bill);
 
-    if (newBalance>= 0 || newBalance < 0) {
+    if (newBalance >= 0 || newBalance < 0) {
       setFriends(
         friends.map((friend) => {
           if (friend.id === id) {
@@ -56,13 +59,28 @@ function App() {
         })
       );
 
-      setSelect({
+      return setSelect({
         ...select,
         id: null,
         name: "",
         isOpenIndex: -1,
       });
     }
+
+    return;
+  };
+
+  const handleUpdateFriends = (name, image, id) => {
+    if (image && name) {
+      setFriends((friends) => [
+        ...friends,
+        { id, name, image: `${image}?u=${id}`, balance: 0 },
+      ]);
+
+      return setIsAddFriend(false);
+    }
+
+    return;
   };
 
   return (
@@ -71,6 +89,9 @@ function App() {
         onSelect={handleSelect}
         selectFriend={select}
         friends={friends}
+        handleUpdateFriends={handleUpdateFriends}
+        isAddFriend={isAddFriend}
+        setIsAddFriend={setIsAddFriend}
       />
       {select.isOpenIndex > -1 && (
         <SplitBill

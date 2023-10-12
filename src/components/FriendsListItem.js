@@ -10,7 +10,7 @@ export default function FriendListItem({
   index,
 }) {
   return (
-    <li>
+    <li className={isOpen ? "selected" : ""}>
       <img src={image} alt={name} />
       <div>
         <h3>{name}</h3>

@@ -9,7 +9,7 @@ export default function SplitBill({ id, name, onSetBalance }) {
 
   const handleMyExpense = (event) => {
     const num = parseInt(event.target.value) || 0;
-    const myExpense = num <= bill ? num : parseInt(expense.me);
+    const myExpense = num <= parseInt(bill) ? num : parseInt(expense.me);
     const friendExpense = parseInt(bill) - myExpense;
 
     setExpense((current) => {
