@@ -8,11 +8,12 @@ This simple application allows friends to record amounts owing to each other aft
 ![Split the Bill](docs/split-bill.png 'Split the Bill')
 
 ## Starting the app
-
 First fork, then in the cloned project directory, you can run:
 
-### `npm start`
+### `npm install`
+Installs all dependencies
 
+### `npm start`
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
