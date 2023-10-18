@@ -98,6 +98,7 @@ function App() {
           id={select.id}
           name={select.name}
           onSetBalance={handleBalanceUpdate}
+          key={select.id}
         />
       )}
     </section>
