@@ -1,5 +1,5 @@
 # Eat-N-Split
-This simple application allows friends to record amounts owing to each other after splitting the bill at joint events. It does not persist the data but it does illustrate aspects of state management, props, and component design. 
+This simple React application allows friends to record amounts owing to each other after splitting the bill at joint events. It does not persist the data but it does illustrate aspects of state management, props, and component design. 
 
 ## Screenshot
 ### Add a Friend 
